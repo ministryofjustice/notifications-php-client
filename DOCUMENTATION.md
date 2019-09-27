@@ -502,7 +502,7 @@ $reference = 'STRING';
 
 #### pdf_data (required)
 
-The precompiled letter must be a PDF file which meets [the GOV.UK Notify PDF letter specification](https://docs.notifications.service.gov.uk/documentation/images/notify-pdf-letter-spec-v2.3.pdf). The method sends the contents of the file to GOV.UK Notify.
+The precompiled letter must be a PDF file which meets [the GOV.UK Notify PDF letter specification](https://docs.notifications.service.gov.uk/documentation/images/notify-pdf-letter-spec-v2.4.pdf). The method sends the contents of the file to GOV.UK Notify.
 
 ```php
 $pdf_data = file_get_contents("path/to/pdf_file");
