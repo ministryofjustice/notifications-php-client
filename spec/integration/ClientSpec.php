@@ -650,12 +650,12 @@ class ClientSpec extends ObjectBehavior
         // missing personalisation
         $response = $this->sendEmail( getenv('FUNCTIONAL_TEST_EMAIL'), getenv('EMAIL_TEMPLATE_ID'), [] );
       } catch (ApiException $e) {
-        assert('$e->getCode() == 400;');
-        assert('$e->getErrorMessage() == \'BadRequestError: "Missing personalisation: name"\';');
-        assert('$e->getErrors()[0][\'error\'] == \'BadRequestError\'');
+        assert($e->getCode() == 400);
+        assert($e->getErrorMessage() == 'BadRequestError: "Missing personalisation: name"');
+        assert($e->getErrors()[0]['error'] == 'BadRequestError');
         $caught = true;
       }
-      assert('$caught == true;');
+      assert($caught == true);
     }
 
     function it_receives_the_expected_response_when_looking_up_received_texts() {
@@ -674,7 +674,7 @@ class ClientSpec extends ObjectBehavior
 
       $received_texts_count = count($received_texts->getWrappedObject());
 
-      assert('$received_texts_count > 0;');
+      assert($received_texts_count > 0);
 
       for( $i = 0; $i < $received_texts_count; $i++ ) {
 

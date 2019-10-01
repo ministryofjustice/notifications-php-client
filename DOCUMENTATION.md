@@ -433,9 +433,9 @@ The following parameters in the letter recipient's address are optional:
 ```php
 $personalisation =
     [
-    'address_line_3' => '123 High Street', 	
-    'address_line_4' => 'Richmond upon Thames', 	
-    'address_line_5' => 'London', 		
+    'address_line_3' => '123 High Street',
+    'address_line_4' => 'Richmond upon Thames',
+    'address_line_5' => 'London',
     'address_line_6' => 'Middlesex',
     ];
 ```

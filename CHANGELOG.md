@@ -1,3 +1,8 @@
+## [2.0.0] - 2019-10-01
+### Removed
+
+* Dropped support for PHP versions older than 7.1
+
 ## [1.9.0] - 2019-01-28
 ### Changed
 
