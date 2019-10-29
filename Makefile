@@ -26,6 +26,10 @@ test: ## Run tests
 integration-test: ## Run integration tests
 	vendor/bin/phpspec run spec/integration/ --format=pretty --verbose
 
+.PHONY: get-client-version
+get-client-version: ## Retrieve client version number from source code
+	@php -r "include 'src/Client.php'; echo \\Alphagov\\Notifications\\Client::VERSION;"
+
 .PHONY: generate-env-file
 generate-env-file: ## Generate the environment file for running the tests inside a Docker container
 	script/generate_docker_env.sh
