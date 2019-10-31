@@ -1,10 +1,13 @@
-.idea
 composer.phar
 composer.lock
 vendor
 tests/local
+
 .DS_Store
-environment.sh
+.idea
+.vscode
+
 docker.env
-.vscode/launch.json
+environment.sh
 environment_test.sh
+.envrc
