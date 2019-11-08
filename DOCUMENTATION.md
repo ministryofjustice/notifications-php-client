@@ -612,16 +612,11 @@ try {
 
 ### Arguments
 
-#### notification_id (required)
+#### notificationId (required)
 
-The ID of the notification. You can find the notification ID in the response to the [original notification method call](/python.html#get-the-status-of-one-message-response).
+The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message-response).
 
-You can also find it in your [GOV.UK Notify Dashboard](https://www.notifications.service.gov.uk).
-
-1. Sign in to GOV.UK Notify and select __Dashboard__.
-1. Select either __emails sent__, __text messages sent__, or __letters sent__.
-1. Select the relevant notification.
-1. Copy the notification ID from the end of the page URL, for example `https://www.notifications.service.gov.uk/services/af90d4cb-ae88-4a7c-a197-5c30c7db423b/notification/ID`.
+You can also find it by signing in to [GOV.UK Notify](https://www.notifications.service.gov.uk) and going to the __API integration__ page.
 
 ### Response
 
@@ -797,6 +792,47 @@ If the request is not successful, the client returns an `Alphagov\Notifications\
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: signature, api token not found"`<br>`}]`|Use the correct API key. Refer to [API keys](#api-keys) for more information.|
 
 
+
+## Get a PDF for a letter notification
+
+### Method
+
+This returns the pdf contents of a letter notification.
+
+```php
+$pdf_file = $notifyClient->getPdfForLetter(
+  'f33517ff-2a88-4f6e-b855-c550268ce08a' // required string - notification ID
+)
+```
+
+### Arguments
+
+#### notificationId (required)
+
+The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message-response).
+
+You can also find it by signing in to [GOV.UK Notify](https://www.notifications.service.gov.uk) and going to the __API integration__ page.
+
+### Response
+
+If the request to the client is successful, the client will return a `string` containing the raw PDF data.
+
+### Error codes
+
+If the request is not successful, the client throws an `Alphagov\Notifications\Exception\NotifyException` object containing the relevant error code:
+
+|error.status_code|error.message|How to fix|
+|:---|:---|:---|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Check the notification ID|
+|`400`|`[{`<br>`"error": "PDFNotReadyError",`<br>`"message": "PDF not available yet, try again later"`<br>`}]`|Wait for the notification to finish processing. This usually takes a few seconds|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Document did not pass the virus scan"`<br>`}]`|You cannot retrieve the contents of a letter notification that contains a virus|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "PDF not available for letters in technical-failure"`<br>`}]`|You cannot retrieve the contents of a letter notification in technical-failure|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "Notification is not a letter"`<br>`}]`|Check that you are looking up the correct notification|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: signature, api token not found"`<br>`}]`|Use the correct API key. Refer to [API keys](#api-keys) for more information|
+|`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Check the notification ID|
+
+
 # Get a template
 
 ## Get a template by ID
@@ -958,7 +994,7 @@ The parameters in the personalisation argument must match the placeholder fields
 
 ### Arguments
 
-#### template_id (required)
+#### templateId (required)
 
 The ID of the template. Sign in to GOV.UK Notify and go to the __Templates__ page.
 
@@ -1005,7 +1041,7 @@ This API call returns one page of up to 250 received text messages. You can get 
 
 You can only get the status of messages that are 7 days old or newer.
 
-You can also set up [callbacks](/php.html#callbacks) for received text messages.
+You can also set up [callbacks](#callbacks) for received text messages.
 
 ## Enable received text messages
 
