@@ -25,7 +25,7 @@ The Notify PHP Client is based on a [PSR-7 HTTP model](https://www.php-fig.org/p
     ]);
     ```
 
-To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/) and go to the __API integration__ page. Refer to the [API keys](#api-keys) section of this documentation for more information.
+To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and go to the __API integration__ page. You can find more information in the [API keys](#api-keys) section of this documentation.
 
 ## Guzzle v5
 
@@ -51,7 +51,7 @@ To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.
 
 1. Run `$notifyClient` to access the GOV.UK Notify API.
 
-To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/) and go to the __API integration__ page. Refer to the [API keys](#api-keys) section of this documentation for more information.
+To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and go to the __API integration__ page. You can find more information in the [API keys](#api-keys) section of this documentation.
 
 ## cURL
 
@@ -77,7 +77,7 @@ You can now use the [autoloader](https://getcomposer.org/doc/01-basic-usage.md#a
 
 1. Run `$notifyClient` to access the GOV.UK Notify API.
 
-To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/) and go to the __API integration__ page. Refer to the [API keys](#api-keys) section of this documentation for more information.
+To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and go to the __API integration__ page. You can find more information in the [API keys](#api-keys) section of this documentation.
 
 # Send a message
 
@@ -116,7 +116,11 @@ The phone number of the recipient of the text message. This can be a UK or inter
 
 #### templateId (required)
 
-Sign in to [GOV.UK Notify](https://www.notifications.service.gov.uk/) and go to the __Templates__ page to find the template ID.
+To find the template ID:
+1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. In the top left corner of the page, check you’re viewing the correct service. If not, select __Switch service__ in the top right corner of the page and select the relevant service.
+1. Go to the __Templates__ page and select the relevant template.
+1. Look for the template ID at the bottom of the page.
 
 #### personalisation (optional)
 
@@ -142,12 +146,12 @@ You can leave out this argument if you do not have a reference.
 
 #### smsSenderId (optional)
 
-A unique identifier of the sender of the text message notification. You can find this information on the __Text Message sender__ settings screen:
+A unique identifier of the sender of the text message notification. You can find this information on the __Text Message sender__ settings page:
 
-1. Sign in to your GOV.UK Notify account.
-1. Go to __Settings__.
-1. If you need to change to another service, select __Switch service__ and then select the correct service.
-1. Go to the __Text Messages__ section and select __Manage__ on the __Text Message sender__ row.
+1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. In the top left corner of the page, check you’re viewing the correct service. If not, select __Switch service__ in the top right corner of the page and select the relevant service.
+1. Go to the __Settings__ page.
+1. In the __Text Messages__ section, select __Manage__ on the __Text Message sender__ row.
 
 You can then either:
 
@@ -233,7 +237,11 @@ The email address of the recipient.
 
 #### templateId (required)
 
-Sign in to [GOV.UK Notify](https://www.notifications.service.gov.uk) and go to the __Templates__ page to find the template ID.
+To find the template ID:
+1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. In the top left corner of the page, check you’re viewing the correct service. If not, select __Switch service__ in the top right corner of the page and select the relevant service.
+1. Go to the __Templates__ page and select the relevant template.
+1. Look for the template ID at the bottom of the page.
 
 #### personalisation (optional)
 
@@ -260,13 +268,15 @@ You can leave out this argument if you do not have a reference.
 
 #### emailReplyToId (optional)
 
-This is an email reply-to address you can specify to receive replies from your users. Your service cannot go live until you set up at least one of these email addresses. To set up:
+This is an email address specified by you to receive replies from your users. You must add at least one email reply-to address before your service can go live.
 
-1. Sign in to your GOV.UK Notify account.
-1. Go to __Settings__.
-1. If you need to change to another service, select __Switch service__ and then select the correct service.
-1. Go to the Email section and select __Manage__ on the __Email reply-to addresses__ row.
-1. Select __Change__ to specify the email address to receive replies, and select __Save__.
+To add a reply-to address:
+1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. In the top left corner of the page, check you’re viewing the correct service. If not, select __Switch service__ in the top right corner of the page and select the relevant service.
+1. Go to the __Settings__ page.
+1. In the Email section, select __Manage__ on the __Email reply-to addresses__ row.
+1. Select __Add reply-to address__.
+1. Enter the email address you want to use, and select __Add__.
 
 For example:
 
@@ -288,8 +298,10 @@ The links are unique and unguessable. GOV.UK Notify cannot access or decrypt you
 
 ### Add a placeholder field to the template
 
-1. Sign in to [GOV.UK Notify](https://www.notifications.service.gov.uk/).
+1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. In the top left corner of the page, check you’re viewing the correct service. If not, select __Switch service__ in the top right corner of the page and select the relevant service.
 1. Go to the __Templates__ page and select the relevant email template.
+1. Select __Edit__.
 1. Add a placeholder field to the email template using double brackets. For example:
 
 "Download your file at: ((link_to_document))"
@@ -361,11 +373,14 @@ If the request is not successful, the client returns an `Alphagov\Notifications\
 
 ### Prerequisites
 
-When your service first signs up to GOV.UK Notify, you’ll start in [trial mode](https://www.notifications.service.gov.uk/features/using-notify#trial-mode). You can only send letters in live mode. You must ask GOV.UK Notify to make your service live.
+When you add a new service it will start in [trial mode](https://www.notifications.service.gov.uk/features/trial-mode). You can only send letters when your service is live.
 
-1. Sign in to [GOV.UK Notify](https://www.notifications.service.gov.uk/).
-1. Select __Using Notify__.
-1. Select __requesting to go live__.
+To send Notify a request to go live:
+
+1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. In the top left corner of the page, check you’re viewing the correct service. If not, select __Switch service__ in the top right corner of the page and select the relevant service.
+1. Go to the __Settings__ page.
+1. In the __Your service is in trial mode__ section, select __request to go live__.
 
 ### Method
 
@@ -395,11 +410,15 @@ try {
 
 #### templateId (required)
 
-Sign in to GOV.UK Notify and go to the __Templates page__ to find the template ID.
+To find the template ID:
+1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. In the top left corner of the page, check you’re viewing the correct service. If not, select __Switch service__ in the top right corner of the page and select the relevant service.
+1. Go to the __Templates__ page and select the relevant template.
+1. Look for the template ID at the bottom of the page.
 
 #### personalisation (required)
 
-The personalisation argument always contains the following required parameters for the letter recipient's address:
+The personalisation argument always contains the following required parameters for the letter recipient’s address:
 
 - `address_line_1`
 - `address_line_2`
@@ -428,7 +447,7 @@ $reference = 'STRING';
 
 #### personalisation (optional)
 
-The following parameters in the letter recipient's address are optional:
+The following parameters in the letter recipient’s address are optional:
 
 ```php
 $personalisation =
@@ -616,7 +635,7 @@ try {
 
 The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message-response).
 
-You can also find it by signing in to [GOV.UK Notify](https://www.notifications.service.gov.uk) and going to the __API integration__ page.
+You can also find it by [signing in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and going to the __API integration__ page.
 
 ### Response
 
@@ -797,7 +816,7 @@ If the request is not successful, the client returns an `Alphagov\Notifications\
 
 ### Method
 
-This returns the pdf contents of a letter notification.
+This returns the PDF contents of a letter notification.
 
 ```php
 $pdf_file = $notifyClient->getPdfForLetter(
@@ -811,7 +830,7 @@ $pdf_file = $notifyClient->getPdfForLetter(
 
 The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message-response).
 
-You can also find it by signing in to [GOV.UK Notify](https://www.notifications.service.gov.uk) and going to the __API integration__ page.
+You can also find it by [signing in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and going to the __API integration__ page.
 
 ### Response
 
@@ -849,7 +868,7 @@ $response = $notifyClient->getTemplate( 'templateId' );
 
 #### templateId (required)
 
-The ID of the template. Sign in to GOV.UK Notify and go to the __Templates__ page to find this.
+The ID of the template. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and go to the __Templates__ page to find it.
 
 ### Response
 
@@ -891,7 +910,7 @@ $response = $notifyClient->getTemplateVersion( 'templateId', 1 );
 
 #### templateId (required)
 
-The ID of the template. Sign in to GOV.UK Notify and go to the __Templates__ page to find this.
+The ID of the template. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and go to the __Templates__ page to find it.
 
 #### version (required)
 
@@ -996,7 +1015,7 @@ The parameters in the personalisation argument must match the placeholder fields
 
 #### templateId (required)
 
-The ID of the template. Sign in to GOV.UK Notify and go to the __Templates__ page.
+The ID of the template. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in) and go to the __Templates__ page to find it.
 
 #### personalisation (required)
 
@@ -1045,7 +1064,7 @@ You can also set up [callbacks](#callbacks) for received text messages.
 
 ## Enable received text messages
 
-Contact the GOV.UK Notify team on the [support page](https://www.notifications.service.gov.uk/support) or through the [Slack channel](https://ukgovernmentdigital.slack.com/messages/C0E1ADVPC) to enable receiving text messages for your service.
+To let your service receive text message replies, contact the Notify team using the [support page](https://www.notifications.service.gov.uk/support) or [chat to us on Slack](https://ukgovernmentdigital.slack.com/messages/C0E1ADVPC).
 
 ## Get a page of received text messages
 
