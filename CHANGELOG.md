@@ -1,3 +1,10 @@
+## [2.2.0] - 2020-01-21
+### Removed
+
+* Support for ^1.0 releases of phphttp/httplug
+  * Code been changed to enforce the use of the `Psr\Http\Client\ClientInterface`. If you're using PHP-HTTP you will
+    find support for this in ^2.0.
+
 ## [2.1.1] - 2019-11-04
 
 ### Added
