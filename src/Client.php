@@ -1,10 +1,10 @@
 <?php
 namespace Alphagov\Notifications;
 
-use GuzzleHttp\Psr7\Uri;                            // Concrete PSR-7 URL representation.
-use GuzzleHttp\Psr7\Request;                        // Concrete PSR-7 HTTP Request
-use Psr\Http\Message\ResponseInterface;             // PSR-7 HTTP Response Interface
-use Http\Client\HttpClient as HttpClientInterface;  // Interface for a PSR-7 compatible HTTP Client.
+use GuzzleHttp\Psr7\Uri;                                    // Concrete PSR-7 URL representation.
+use GuzzleHttp\Psr7\Request;                                // Concrete PSR-7 HTTP Request
+use Psr\Http\Message\ResponseInterface;                     // PSR-7 HTTP Response Interface
+use Psr\Http\Client\ClientInterface as HttpClientInterface; // Interface for a PSR-7 compatible HTTP Client.
 
 use Alphagov\Notifications\Authentication\JWTAuthenticationInterface;
 
